@@ -13,12 +13,17 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+        float translationInput = Input.GetAxis("Vertical");
+        float rotationInput = Input.GetAxis("Horizontal");
+
+        animator.SetFloat("MovX", rotationInput);
+        animator.SetFloat("MovY", translationInput);
+
+        float translation = translationInput * speed * Time.deltaTime;
+        float rotation = rotationInput * rotationSpeed * Time.deltaTime;
 
         transform.Translate(0, 0, translation);
         transform.Rotate(0, rotation, 0);
-        animator.SetFloat("MovX", rotation);
-        animator.SetFloat("MovY", translation);
     }
+
 }
