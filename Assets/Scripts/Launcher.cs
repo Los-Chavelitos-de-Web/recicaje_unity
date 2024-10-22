@@ -23,7 +23,14 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation);
-        Destroy(main);
+        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, spawnPoint.rotation);
+        Destroy(main.gameObject);
+
+        Camera playerCamera = player.GetComponentInChildren<Camera>();
+        if (playerCamera != null)
+        {
+            playerCamera.enabled = true;
+        }
     }
+
 }

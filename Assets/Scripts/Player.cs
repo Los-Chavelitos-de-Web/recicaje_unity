@@ -5,10 +5,12 @@ public class Player : MonoBehaviour
     private float speed = 10.0f;
     private float rotationSpeed = 100.0f;
     private Animator animator;
+    private Rigidbody rb;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -19,11 +21,12 @@ public class Player : MonoBehaviour
         animator.SetFloat("MovX", rotationInput);
         animator.SetFloat("MovY", translationInput);
 
-        float translation = translationInput * speed * Time.deltaTime;
-        float rotation = rotationInput * rotationSpeed * Time.deltaTime;
+        // Calcula el movimiento y la rotación
+        Vector3 movement = transform.forward * translationInput * speed * Time.deltaTime;
+        Quaternion turnRotation = Quaternion.Euler(0, rotationInput * rotationSpeed * Time.deltaTime, 0);
 
-        transform.Translate(0, 0, translation);
-        transform.Rotate(0, rotation, 0);
+        // Mueve el Rigidbody
+        rb.MovePosition(rb.position + movement);
+        rb.MoveRotation(rb.rotation * turnRotation);
     }
-
 }
