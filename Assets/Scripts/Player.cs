@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     private float rotationSpeed = 100.0f;
     private Animator animator;
     private Rigidbody rb;
+    public GameObject objPick;
 
     void Start()
     {

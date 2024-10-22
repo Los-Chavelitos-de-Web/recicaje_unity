@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 731909340545115668}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cba5c1a09d3bcf3abd7276cce115ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objPick: {fileID: 0}
 --- !u!114 &5486334771023751646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +177,12 @@ MonoBehaviour:
   - Type: 1
     SynchronizeType: 2
     Name: MovY
+  - Type: 4
+    SynchronizeType: 0
+    Name: isRecoger
+  - Type: 4
+    SynchronizeType: 0
+    Name: isTirar
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
