@@ -21,12 +21,16 @@ public class Player : MonoBehaviour
         animator.SetFloat("MovX", rotationInput);
         animator.SetFloat("MovY", translationInput);
 
-        // Calcula el movimiento y la rotación
         Vector3 movement = transform.forward * translationInput * speed * Time.deltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0, rotationInput * rotationSpeed * Time.deltaTime, 0);
 
-        // Mueve el Rigidbody
-        rb.MovePosition(rb.position + movement);
+        // Comprobar colisión con raycasting
+        if (!Physics.Raycast(transform.position, movement.normalized, movement.magnitude))
+        {
+            // Mover el Rigidbody solo si no hay colisión
+            rb.MovePosition(rb.position + movement);
+        }
+
+        Quaternion turnRotation = Quaternion.Euler(0, rotationInput * rotationSpeed * Time.deltaTime, 0);
         rb.MoveRotation(rb.rotation * turnRotation);
     }
 }
