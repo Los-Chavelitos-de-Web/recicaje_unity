@@ -3,11 +3,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public bool canMove = true;
+    public GameObject objPick;
     private float speed = 10.0f;
     private float rotationSpeed = 100.0f;
     private Animator animator;
     private Rigidbody rb;
-    public GameObject objPick;
 
     void Start()
     {

@@ -10,6 +10,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public Transform spawnPoint;
     public TextMeshProUGUI txtLoad;
     public TextMeshProUGUI txtObjective;
+    public Timer txtTimerOut;
     private Camera main;
     private List<string> targets = new List<string>();
     private List<GameObject> basuraTotal = new List<GameObject>();
@@ -22,6 +23,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
         main = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         txtLoad = txtLoad.GetComponent<TextMeshProUGUI>();
+        txtTimerOut = txtTimerOut.GetComponent<Timer>();
 
         foreach (var tag in targets)
         {
@@ -50,6 +52,10 @@ public class Launcher : MonoBehaviourPunCallbacks
         Destroy(main.gameObject);
         txtLoad.SetText("");
         txtObjective.SetText($"Basura recogida: {basuraNoRecogida.Count}/{basuraTotal.Count}");
+
+        if (!txtTimerOut.timerIsRunning) {
+            txtTimerOut.StartTimer();
+        }
 
         Camera playerCamera = player.GetComponentInChildren<Camera>();
         if (playerCamera != null)
