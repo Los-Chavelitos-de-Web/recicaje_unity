@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool canMove = true;
     private float speed = 10.0f;
     private float rotationSpeed = 100.0f;
     private Animator animator;
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!canMove) return;
+
         float translationInput = Input.GetAxis("Vertical");
         float rotationInput = Input.GetAxis("Horizontal");
 
@@ -24,10 +27,8 @@ public class Player : MonoBehaviour
 
         Vector3 movement = transform.forward * translationInput * speed * Time.deltaTime;
 
-        // Comprobar colisión con raycasting
         if (!Physics.Raycast(transform.position, movement.normalized, movement.magnitude))
         {
-            // Mover el Rigidbody solo si no hay colisión
             rb.MovePosition(rb.position + movement);
         }
 
