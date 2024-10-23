@@ -1,8 +1,43 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 
 public class RecyclingBin : MonoBehaviour
 {
+    public TextMeshProUGUI txtObjective;
+    private List<string> targets = new List<string>();
+    private List<GameObject> basuraTotal = new List<GameObject>();
+    private List<GameObject> basuraNoRecogida = new List<GameObject>();
+
+    private void Start() {
+        targets.Add("objReciclable");
+        targets.Add("objNoReciclable");
+
+        foreach (var tag in targets)
+        {
+            GameObject[] obj = GameObject.FindGameObjectsWithTag(tag);
+            foreach (var gameObject in obj)
+            {
+                basuraTotal.Add(gameObject);
+            }
+        }
+    }
+
+    private void reloadData(){
+        basuraNoRecogida.Clear();
+        foreach (var tag in targets)
+        {
+            GameObject[] obj = GameObject.FindObjectsOfType<GameObject>(false);
+            foreach (var gameObject in obj)
+            {
+                if (gameObject.CompareTag(tag)) {
+                    basuraNoRecogida.Add(gameObject);
+                }
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -19,6 +54,8 @@ public class RecyclingBin : MonoBehaviour
                     anim.SetBool("isTirar", true);
                     player.canMove = false;
                     StartCoroutine(HandlePickup(anim, player));
+                    reloadData();
+                    txtObjective.SetText($"Basura recogida: {basuraTotal.Count - basuraNoRecogida.Count}/{basuraTotal.Count}");
                 }
                 else if (this.CompareTag("cNoReciclar") && player.objPick.CompareTag("objNoReciclable"))
                 {
@@ -27,6 +64,8 @@ public class RecyclingBin : MonoBehaviour
                     anim.SetBool("isTirar", true);
                     player.canMove = false;
                     StartCoroutine(HandlePickup(anim, player));
+                    reloadData();
+                    txtObjective.SetText($"Basura recogida: {basuraTotal.Count - basuraNoRecogida.Count}/{basuraTotal.Count}");
                 }
                 else
                 {
