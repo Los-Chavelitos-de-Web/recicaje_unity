@@ -446,7 +446,7 @@ MonoBehaviour:
   - {fileID: 7764362244016869941}
   m_FixedDuration: 8.32498337197137
   m_EditorSettings:
-    m_Framerate: 59.940059661865234
+    m_Framerate: 59.94
     m_ScenePreview: 1
   m_DurationMode: 0
   m_MarkerTrack: {fileID: -3079039816339971538}

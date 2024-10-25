@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Photon.Pun;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Launcher : MonoBehaviourPunCallbacks
@@ -52,6 +53,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         Destroy(main.gameObject);
         txtLoad.SetText("");
         txtObjective.SetText($"Basura recogida: {basuraNoRecogida.Count}/{basuraTotal.Count}");
+        txtTimerOut.players.Add(player);
 
         if (!txtTimerOut.timerIsRunning) {
             txtTimerOut.StartTimer();

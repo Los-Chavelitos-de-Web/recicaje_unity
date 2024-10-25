@@ -2,10 +2,13 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class RecyclingBin : MonoBehaviour
 {
     public TextMeshProUGUI txtObjective;
+    public GameObject timer;
+    public Animator pAnim;
     private List<string> targets = new List<string>();
     private List<GameObject> basuraTotal = new List<GameObject>();
     private List<GameObject> basuraNoRecogida = new List<GameObject>();
@@ -38,6 +41,19 @@ public class RecyclingBin : MonoBehaviour
         }
     }
 
+    private void finish() {
+        if (basuraNoRecogida.Count == 0) {
+            timer.GetComponent<Timer>().timerIsRunning = false;
+            timer.GetComponent<TextMeshProUGUI>().SetText("<color=green><b>¡Limpieza finalizada correctamente!</b></color>");
+            pAnim.Play("FadeOut");
+            Invoke("Finished", 4);
+        }
+    }
+
+    private void Finished() {
+        SceneManager.LoadScene("Finish");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -56,6 +72,7 @@ public class RecyclingBin : MonoBehaviour
                     StartCoroutine(HandlePickup(anim, player));
                     reloadData();
                     txtObjective.SetText($"Basura recogida: {basuraTotal.Count - basuraNoRecogida.Count}/{basuraTotal.Count}");
+                    finish();
                 }
                 else if (this.CompareTag("cNoReciclar") && player.objPick.CompareTag("objNoReciclable"))
                 {
@@ -66,6 +83,7 @@ public class RecyclingBin : MonoBehaviour
                     StartCoroutine(HandlePickup(anim, player));
                     reloadData();
                     txtObjective.SetText($"Basura recogida: {basuraTotal.Count - basuraNoRecogida.Count}/{basuraTotal.Count}");
+                    finish();
                 }
                 else
                 {
