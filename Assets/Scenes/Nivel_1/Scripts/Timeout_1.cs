@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Timeout : MonoBehaviour
+public class Timeout_1 : MonoBehaviour
 {
     void Start()
     {
@@ -17,6 +17,6 @@ public class Timeout : MonoBehaviour
 
     private void MyFunction()
     {
-        SceneManager.LoadScene("Playing");
+        SceneManager.LoadScene("Playing_1");
     }
 }

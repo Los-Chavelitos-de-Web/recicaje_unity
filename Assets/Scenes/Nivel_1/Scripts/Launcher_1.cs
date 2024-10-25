@@ -4,14 +4,14 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Launcher : MonoBehaviourPunCallbacks
+public class Launcher_1 : MonoBehaviourPunCallbacks
 {
 
     public PhotonView playerPrefab;
     public Transform spawnPoint;
     public TextMeshProUGUI txtLoad;
     public TextMeshProUGUI txtObjective;
-    public Timer txtTimerOut;
+    public Timer_1 txtTimerOut;
     private Camera main;
     private List<string> targets = new List<string>();
     private List<GameObject> basuraTotal = new List<GameObject>();
@@ -24,7 +24,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
         main = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         txtLoad = txtLoad.GetComponent<TextMeshProUGUI>();
-        txtTimerOut = txtTimerOut.GetComponent<Timer>();
+        txtTimerOut = txtTimerOut.GetComponent<Timer_1>();
 
         foreach (var tag in targets)
         {

@@ -460,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc70bff40615547dd82a6b018f916c52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.081306
+      value: 44.54
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc70bff40615547dd82a6b018f916c52, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1163,6 +1163,7 @@ GameObject:
   - component: {fileID: 321107174}
   - component: {fileID: 321107177}
   - component: {fileID: 321107176}
+  - component: {fileID: 321107178}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -1265,6 +1266,18 @@ PlayableDirector:
     value: {fileID: 321107176}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &321107178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321107173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63de47b5afb159a98a6156553bd4147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &339315091 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8704991199313462444, guid: bc70bff40615547dd82a6b018f916c52, type: 3}

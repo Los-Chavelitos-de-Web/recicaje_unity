@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class Timer : MonoBehaviour
+public class Timer_1 : MonoBehaviour
 {
     public Animator pAnim;
     public bool timerIsRunning = false;
@@ -66,6 +66,6 @@ public class Timer : MonoBehaviour
 
     private void ReturnScene() {
         if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("Cinematic");
+        SceneManager.LoadScene("Cinematic_1");
     }
 }

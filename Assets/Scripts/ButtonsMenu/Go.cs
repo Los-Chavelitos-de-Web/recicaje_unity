@@ -15,6 +15,6 @@ public class Go : MonoBehaviour
     }
 
     private void changeScene() {
-        SceneManager.LoadScene("Cinematic");
+        SceneManager.LoadScene("Cinematic_1");
     }
 }
