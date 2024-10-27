@@ -1757,6 +1757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basura
       objectReference: {fileID: 0}
+    - target: {fileID: 1834728707380134652, guid: 9ec4ebb4ca170ed86b9e12b295cef773, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1942041474299556802, guid: 9ec4ebb4ca170ed86b9e12b295cef773, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.1555
