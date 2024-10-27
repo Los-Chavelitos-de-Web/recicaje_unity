@@ -22,7 +22,6 @@ public class SkipPage : MonoBehaviour
     }
 
     private void activePane(int i) {
-        Debug.Log(indice);
         if (i < 0) {
             indice = 0;
         } else if (i >= paneles.Length) {

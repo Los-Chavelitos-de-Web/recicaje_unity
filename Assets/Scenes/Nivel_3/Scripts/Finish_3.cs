@@ -17,6 +17,6 @@ public class Finish_3 : MonoBehaviour
 
     private void MyFunction()
     {
-        SceneManager.LoadScene("Cinematic_3");
+        SceneManager.LoadScene("Menu");
     }
 }
