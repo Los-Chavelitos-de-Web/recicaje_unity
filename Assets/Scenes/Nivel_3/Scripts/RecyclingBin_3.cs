@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class RecyclingBin_1 : MonoBehaviour
+public class RecyclingBin_3 : MonoBehaviour
 {
     public TextMeshProUGUI txtObjective;
     public GameObject timer;
@@ -44,7 +44,7 @@ public class RecyclingBin_1 : MonoBehaviour
 
     private void finish() {
         if (basuraNoRecogida.Count == 0) {
-            timer.GetComponent<Timer_1>().timerIsRunning = false;
+            timer.GetComponent<Timer_3>().timerIsRunning = false;
             timer.GetComponent<TextMeshProUGUI>().SetText("<color=green><b>¡Limpieza finalizada correctamente!</b></color>");
             pAnim.Play("FadeOut");
             Invoke("Finished", 4);
@@ -53,7 +53,7 @@ public class RecyclingBin_1 : MonoBehaviour
 
     private void Finished() {
         if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("Finish_1");
+        SceneManager.LoadScene("Finish_3");
     }
 
     private void OnTriggerEnter(Collider other)

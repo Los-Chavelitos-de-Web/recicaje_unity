@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class RecyclingBin_2 : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class RecyclingBin_2 : MonoBehaviour
     }
 
     private void Finished() {
+        if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
         SceneManager.LoadScene("Finish_2");
     }
 
