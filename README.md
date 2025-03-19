@@ -10,5 +10,5 @@ medio ambiente
   </a>
 </p>
 
-## 📱 Project Running on Linux
+## 📱 Project Running on Desktop
 https://github.com/user-attachments/assets/fa3ab174-20ff-4e32-af0b-d8601dcad498
